@@ -226,6 +226,12 @@ func (ldb *LocalSwitchDBManager) processLocalFiles(files []ExtendedFileInfo,
 
 			//process Updates
 			if strings.HasSuffix(metadata.TitleId, "800") {
+				if switchTitle.File.ExtendedInfo.FileName == file.FileName {
+					if metadata.Version > switchTitle.File.Metadata.Version {
+						switchTitle.File.Metadata.Version = metadata.Version
+					}
+					continue
+				}
 				metadata.Type = "Update"
 
 				if update, ok := switchTitle.Updates[metadata.Version]; ok {

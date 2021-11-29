@@ -92,7 +92,7 @@ func OrganizeByFolders(baseFolder string,
 		if _, ok := titlesDB.TitlesMap[k]; ok {
 			templateData[settings.TEMPLATE_REGION] = titlesDB.TitlesMap[k].Attributes.Region
 		}
-		templateData[settings.TEMPLATE_VERSION] = "0"
+		templateData[settings.TEMPLATE_VERSION] = strconv.Itoa(v.File.Metadata.Version)
 
 		if v.File.Metadata.Ncap != nil {
 			templateData[settings.TEMPLATE_VERSION_TXT] = v.File.Metadata.Ncap.DisplayVersion
