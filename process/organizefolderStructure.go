@@ -251,11 +251,6 @@ func IsOptionsValid(options settings.OrganizeOptions) bool {
 			zap.S().Error("folder name template cannot be empty")
 			return false
 		}
-		if !strings.Contains(options.FolderNameTemplate, settings.TEMPLATE_TITLE_NAME) &&
-			!strings.Contains(options.FolderNameTemplate, settings.TEMPLATE_TITLE_ID) {
-			zap.S().Error("folder name template needs to contain one of the following - titleId or title name")
-			return false
-		}
 	}
 	return true
 }
