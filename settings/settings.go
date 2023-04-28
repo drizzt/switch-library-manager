@@ -38,13 +38,14 @@ const (
 )
 
 type OrganizeOptions struct {
-	CreateFolderPerGame  bool   `json:"create_folder_per_game"`
-	RenameFiles          bool   `json:"rename_files"`
-	DeleteEmptyFolders   bool   `json:"delete_empty_folders"`
-	DeleteOldUpdateFiles bool   `json:"delete_old_update_files"`
-	FolderNameTemplate   string `json:"folder_name_template"`
-	SwitchSafeFileNames  bool   `json:"switch_safe_file_names"`
-	FileNameTemplate     string `json:"file_name_template"`
+	CreateFolderPerGame    bool   `json:"create_folder_per_game"`
+	RenameFiles            bool   `json:"rename_files"`
+	DeleteEmptyFolders     bool   `json:"delete_empty_folders"`
+	DeleteOldUpdateFiles   bool   `json:"delete_old_update_files"`
+	BaseFolderNameTemplate string `json:"base_folder_name_template"`
+	FolderNameTemplate     string `json:"folder_name_template"`
+	SwitchSafeFileNames    bool   `json:"switch_safe_file_names"`
+	FileNameTemplate       string `json:"file_name_template"`
 }
 
 type AppSettings struct {

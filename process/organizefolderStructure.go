@@ -102,7 +102,7 @@ func OrganizeByFolders(baseFolder string,
 
 		//create folder if needed
 		if options.CreateFolderPerGame {
-			folderToCreate := getFolderName(options, templateData)
+			folderToCreate := getBaseFolderName(options, templateData)
 			destinationPath = filepath.Join(baseFolder, folderToCreate)
 			if _, err := os.Stat(destinationPath); os.IsNotExist(err) {
 				err = os.Mkdir(destinationPath, os.ModePerm)
@@ -284,6 +284,11 @@ func getTitleName(switchTitle *db.SwitchTitle, v *db.SwitchGameFiles) string {
 	//for non eshop games (cartridge only), grab the name from the file
 	return db.ParseTitleNameFromFileName(v.File.ExtendedInfo.FileName)
 
+}
+
+func getBaseFolderName(options settings.OrganizeOptions, templateData map[string]string) string {
+
+	return applyTemplate(templateData, options.SwitchSafeFileNames, options.BaseFolderNameTemplate, true)
 }
 
 func getFolderName(options settings.OrganizeOptions, templateData map[string]string) string {
