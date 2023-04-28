@@ -86,7 +86,7 @@ func OrganizeByFolders(baseFolder string,
 		templateData := map[string]string{}
 
 		templateData[settings.TEMPLATE_TITLE_ID] = v.File.Metadata.TitleId
-		//templateData[settings.TEMPLATE_TYPE] = "BASE"
+		templateData[settings.TEMPLATE_TYPE] = "BASE"
 		templateData[settings.TEMPLATE_TITLE_NAME] = titleName
 		templateData[settings.TEMPLATE_VERSION_TXT] = ""
 		if _, ok := titlesDB.TitlesMap[k]; ok {
