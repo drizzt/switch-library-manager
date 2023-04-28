@@ -86,6 +86,7 @@ func OrganizeByFolders(baseFolder string,
 		templateData := map[string]string{}
 
 		templateData[settings.TEMPLATE_TITLE_ID] = v.File.Metadata.TitleId
+		templateData[settings.TEMPLATE_BASE_TITLE_ID] = v.File.Metadata.TitleId
 		templateData[settings.TEMPLATE_TYPE] = "BASE"
 		templateData[settings.TEMPLATE_TITLE_NAME] = titleName
 		templateData[settings.TEMPLATE_VERSION_TXT] = ""
@@ -316,6 +317,7 @@ func moveFile(from string, to string) error {
 func applyTemplate(templateData map[string]string, useSafeNames bool, template string, folder bool) string {
 	result := strings.Replace(template, "{"+settings.TEMPLATE_TITLE_NAME+"}", templateData[settings.TEMPLATE_TITLE_NAME], 1)
 	result = strings.Replace(result, "{"+settings.TEMPLATE_TITLE_ID+"}", strings.ToUpper(templateData[settings.TEMPLATE_TITLE_ID]), 1)
+	result = strings.Replace(result, "{"+settings.TEMPLATE_BASE_TITLE_ID+"}", strings.ToUpper(templateData[settings.TEMPLATE_BASE_TITLE_ID]), 1)
 	result = strings.Replace(result, "{"+settings.TEMPLATE_VERSION+"}", templateData[settings.TEMPLATE_VERSION], 1)
 	result = strings.Replace(result, "{"+settings.TEMPLATE_TYPE+"}", templateData[settings.TEMPLATE_TYPE], 1)
 	result = strings.Replace(result, "{"+settings.TEMPLATE_VERSION_TXT+"}", templateData[settings.TEMPLATE_VERSION_TXT], 1)
